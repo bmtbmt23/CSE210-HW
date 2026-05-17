@@ -52,7 +52,7 @@ class Program
       else if (choice == 4)
       {
           Console.WriteLine("Enter a filename: ");
-          string Nfile = Console.ReadLine();
+          string file = Console.ReadLine();
           theJournal.LoadFromFile(file);
           Console.WriteLine("Your Journal is Loaded!");
           Console.WriteLine();

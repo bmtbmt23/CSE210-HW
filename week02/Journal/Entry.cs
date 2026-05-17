@@ -15,6 +15,6 @@ public class Entry
    
     public string ToFileString()
     {
-        return $"{_date}|{_promptText}|{_entryText};
+        return $"{_date}|{_promptText}|{_entryText}";
     }
 }
