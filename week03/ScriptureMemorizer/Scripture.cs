@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 class Scripture
 {
+
     private Reference _reference;
     private List<Word> _words;
+
+    private Random _random = new Random();
 
     public Scripture(Reference reference, string text)
     {
@@ -24,21 +27,18 @@ class Scripture
                
                while (hiddenNumber < numberToHide)
                {
-                int label = random.Next(_words.Count);
+                int label = _random.Next(_words.Count);
                 
                 if (!_words[label].IsHidden())
                 {
                     _words[label].Hide();
                     hiddenNumber++;
-                       
-                    foreach (Word word in _words)
-                    {
-                        text += word.GetDisplayText(0) + " ";
-                    }
-                    
-                    return $"{_reference.GetDisplayText()} - {text.Trim()}";
+                }
                 
-                public bool IsCompleteHidden()
+                }
+        }
+       
+                public bool IsCompletelyHidden()
                 {
                     foreach (Word word in _words)
                     {
@@ -50,8 +50,19 @@ class Scripture
                        
                         return true;
                 }
-                   
-                }
+
+        public string GetDisplayText()
+            
+            {
+                string text = "";
+                
+                foreach (Word word in _words)
+        {
+            text += word.GetDisplayText() + " ";
+        }
+
+        return _reference.GetDisplayText() + " " + text.Trim();
+            
+            }
             
         }
-}

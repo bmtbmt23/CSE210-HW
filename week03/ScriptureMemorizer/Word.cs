@@ -23,7 +23,7 @@ class Word
        {
            if (_isHidden)
            {
-               return new string ("_" _text.Length);
+               return new string ('_', _text.Length);
            }
            else
            {
