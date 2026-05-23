@@ -20,7 +20,7 @@ class Scripture
         public void HideRandomWords( int numberToHide)
         {
             Random random = new Random();
-            int HiddenNumber = 0;
+            int hiddenNumber = 0;
                
                while (hiddenNumber < numberToHide)
                {
@@ -28,7 +28,7 @@ class Scripture
                 
                 if (!_words[label].IsHidden())
                 {
-                    _words[label].hide();
+                    _words[label].Hide();
                     hiddenNumber++;
                        
                     foreach (Word word in _words)
@@ -37,7 +37,7 @@ class Scripture
                     }
                     
                     return $"{_reference.GetDisplayText()} - {text.Trim()}";
-                }
+                
                 public bool IsCompleteHidden()
                 {
                     foreach (Word word in _words)
@@ -52,7 +52,6 @@ class Scripture
                 }
                    
                 }
-            }
+            
         }
-    }
 }
