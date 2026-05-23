@@ -12,7 +12,7 @@ class Word
     }
     public void Hide()
     {
-        isHidden = true;
+        _isHidden = true;
     }
     public bool IsHidden()
     {

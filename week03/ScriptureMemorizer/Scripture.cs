@@ -9,14 +9,15 @@ class Scripture
     {
         _reference = reference;
         _words = new List<Word>();
+
         string[] words = text.Split (" ");
         
-        foreach()
+        foreach(string word in words)
         {
             _words.Add(new Word(word));
         }
-        
-        Public void HideRandomWords( int numberToHide)
+    }   
+        public void HideRandomWords( int numberToHide)
         {
             Random random = new Random();
             int HiddenNumber = 0;
