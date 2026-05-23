@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-Class Scripture
+class Scripture
 {
     private Reference _reference;
     private List<Word> _words;
@@ -37,7 +37,7 @@ Class Scripture
                     
                     return $"{_reference.GetDisplayText()} - {text.Trim()}";
                 }
-                public bool IsCompleteyHidden()
+                public bool IsCompleteHidden()
                 {
                     foreach (Word word in _words)
                     {
