@@ -6,14 +6,14 @@ public class Video
     private string _title;
     private string _author;
     private int _lengthInSeconds;
-    private List<comment> _comments;
+    private List<Comment> _comments;
    
-    public video(string title, string author, int lengthInSeconds)
+    public Video(string title, string author, int lengthInSeconds)
     {
         _title = title;
         _author = author;
         _lengthInSeconds = lengthInSeconds;
-        _comments = new List<comment>();
+        _comments = new List<Comment>();
     }
     public string GetAuthor()
     {
@@ -23,13 +23,13 @@ public class Video
     {
         return _title;
     }
-    public int GetLenghthInSeconds()
+    public int GetLengthInSeconds()
     {
         return _lengthInSeconds;
     }
     public void AddComment(Comment comment)
     {
-        _comments.Add(_comments);
+        _comments.Add(comment);
     }
     public int GetCommentCount()
     {
@@ -42,6 +42,6 @@ public class Video
    
     public string GetDisplayInfo()
     {
-        return $"Title: {_title}\nAuthor: {_author}\nLenght: {_lengthInSeconds}\nComments: {GetCommentCount()}";
+        return $"Title: {_title}\nAuthor: {_author}\nLength: {_lengthInSeconds}\nComments: {GetCommentCount()}";
     }
 }

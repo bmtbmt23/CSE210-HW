@@ -9,7 +9,7 @@ public class Comment
         _text = text;
     }
    
-    public string Getname()
+    public string GetName()
     {
         return _name;
     }
