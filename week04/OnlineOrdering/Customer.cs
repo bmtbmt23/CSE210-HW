@@ -5,16 +5,16 @@ public class Customer
     private string _name;
    private Address _address;
    
-    public Customer(string name, string Address)
+    public Customer(string name, Address address)
     {
         _name = name;
-        _address = Address;
+        _address = address;
     }
-    public string Getname()
+    public string GetName()
     {
         return _name;
     }
-    public string GetAddress()
+    public Address GetAddress()
     {
         return _address;
     }

@@ -19,5 +19,10 @@ public class Product
     {
         return _price * _quantity;
     }
+
+    public string GetPackingInfo()
+    {
+        return $"Product: {_name}, ID: {_ProductId}";
+    }
    
 }

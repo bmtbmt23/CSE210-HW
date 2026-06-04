@@ -18,16 +18,15 @@ public class Order
     public double GetTotalCost()
     {
         double total = 0;
-    }
     
     foreach (Product product in _products)
     {
-        total += product.GetTotalCost();
+        total += product.GetTotalPrice();
     }
     
     if (_customer.LivesInUSA())
     {
-        += 5;
+        total += 5;
     }
     else
     {
@@ -36,13 +35,17 @@ public class Order
     return total;
 }
 public string GetPackingLabel()
-{
-    foreach (product product in _products)
+{   
+    string label = " ";
+
+    foreach (Product product in _products)
     {
         label += product.GetPackingInfo();
     }
+    return label;
 }
-public string GetshippingLabel()
+public string GetShippingLabel()
 {
-    return $"Shipping Label:" {_customer.Getname()} {_customer.GetAddress().GetFullAddress()};
+    return $"Shipping Label: {_customer.GetName()} {_customer.GetAddress()}";
+}
 }
