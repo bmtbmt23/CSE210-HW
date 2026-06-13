@@ -130,6 +130,7 @@ public class GoalManager
 
             _goals.Add(new ChecklistGoal(name, description, points, goal, bonus )); 
         }
+    }
     public void RecordEvent()
     {
         Console.WriteLine("Which goal did you complete?");
