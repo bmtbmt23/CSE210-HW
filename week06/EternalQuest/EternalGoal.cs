@@ -2,13 +2,13 @@ using System;
 
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, string descrisption, int points)
+    public EternalGoal(string name, string description, int points) : base(name, description, points)
     {
        
     }
-    public override int RecordEvent()
+    public override void RecordEvent()
     {
-        GetPoints()
+        GetPoints();
     }
     public override bool IsComplete()
     {

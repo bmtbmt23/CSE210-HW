@@ -8,12 +8,12 @@ using System.Security.Cryptography.X509Certificates;
 public class GoalManager
 {
     private List<Goal> _goals;
-    private int score;
+    private int _score;
     
     public GoalManager()
     {
         _goals = new List<Goal>();
-        _score = score;
+        _score = 0;
     }
     
     public void Start()
@@ -60,7 +60,7 @@ public class GoalManager
                 Console.WriteLine("Invalid option. Please try again.");
             }
         }
-    
+    }
         public void DisplayPlayerInfo()
         {
             Console.WriteLine($"You have {_score} points.");
@@ -73,13 +73,14 @@ public class GoalManager
                 Console.WriteLine($"{number}, {goal.GetName()}");
                 number++;
             }
+        }
         public void ListGoalDetails()
         {
             Console.WriteLine("\nThe goals are: ");
             
             if (_goals.Count == 0)
             {
-                Console.WriteLine("Not goals yet.")
+                Console.WriteLine("Not goals yet.");
             }
             else 
             {
@@ -98,7 +99,7 @@ public class GoalManager
         Console.WriteLine(" 2.Eternal Goal");
         Console.WriteLine(" 3.Checklist Goal");
         Console.WriteLine("Which type goal would you like to create?");
-        string read = Console.ReadLine();
+        string type = Console.ReadLine();
 
         Console.WriteLine("Which type of goal would you like to create? ");
         string name = Console.ReadLine();
@@ -108,33 +109,41 @@ public class GoalManager
         Console.WriteLine("What is the amount of point associated with this goal? ");
         int points = int.Parse(Console.ReadLine());
 
-        if (types == "1")
+        if (type == "1")
         {
             _goals.Add(new SimpleGoal(name, description, points));
         }
 
-        else if (types == "2")
+        else if (type == "2")
         {
             _goals.Add(new EternalGoal(name, description, points));
         }
 
-        else if (types == "3")
+        else if (type == "3")
         {
             Console.WriteLine("How many times does this goal need to be accomplished for a bonus? ");
             int goal = int.Parse("Console.ReadLine()");
             Console.WriteLine("What is the bonus for accomplishing it that many time? ");
+            int bonus = int.Parse(Console.ReadLine());
+
             Console.ReadLine();
 
-            _goals.Add(new ChecklistGoal(name, description, points, goal ));
-            int bonus = int.Parse(Console.ReadLine());
+            _goals.Add(new ChecklistGoal(name, description, points, goal, bonus )); 
         }
-
-    }
     public void RecordEvent()
     {
-        
-    }
+        Console.WriteLine("Which goal did you complete?");
+        ListGoalNames();
 
+        int gotDone = int.Parse(Console.ReadLine()) -1;
+
+        if (gotDone >= 0 && gotDone <_goals.Count)
+        {
+            Goal goal = _goals[gotDone];
+            goal.RecordEvent();
+        }
+    }
+    
     public void SaveGoals()
     {
         Console.WriteLine("What is the filename for this goal? ");
@@ -142,7 +151,7 @@ public class GoalManager
 
         using (StreamWriter writer = new StreamWriter(fileName))
         {
-            writer.WriteLine(score);
+            writer.WriteLine(_score);
             foreach (Goal goal in _goals)
             {
                 writer.WriteLine(goal.GetStringRepresentation());
@@ -154,10 +163,7 @@ public class GoalManager
 
     public void LoadGoals()
     {
-        
-    }
-
-
-        }
+        Console.WriteLine("Loading...");
     }
 }
+    

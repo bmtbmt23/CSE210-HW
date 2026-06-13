@@ -15,13 +15,13 @@ public class Program
         Rectangle store2 = new Rectangle("Pink", 4, 6);
         shapes.Add(store2);
         
-        Cicle store3 = new Cicle("Blue", 8);
+        Circle store3 = new Circle("Blue", 8);
         shapes.Add(store3);
         
-        foreach (Shapes store in shapes)
+        foreach (Shape store in shapes)
         {
-            string color = shape.GetColor();
-            double area = shape.GetArea();
+            string color = store.GetColor();
+            double area = store.GetArea();
             
             Console.WriteLine($"The {color} has an area of {area}. ");
             
@@ -29,19 +29,17 @@ public class Program
     }
 }
 
-public abstract class shape
+public abstract class Shape
 {
     private string _color;
-    {
+    
         public Shape(string color)
         {
-            _colot = color;
+            _color = color;
         }
         public string GetColor()
         {
-            return color;
+            return _color;
         }
         public abstract double GetArea();
-        
-    }
 }
