@@ -1,5 +1,8 @@
 using System;
 using System.Diagnostics;
+
+namespace ExerciseTracking
+{    
 public class Running : Activity
 {
     private double _distance;
@@ -18,4 +21,5 @@ public class Running : Activity
     {
         return GetMinutes() / _distance;
     }
+}
 }
